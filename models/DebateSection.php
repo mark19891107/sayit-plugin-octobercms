@@ -24,5 +24,5 @@ class DebateSection extends Model
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'markdai_sayitplugin_debate';
+    public $table = 'markdai_sayitplugin_debate_section';
 }

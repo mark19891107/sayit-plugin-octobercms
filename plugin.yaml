@@ -9,3 +9,12 @@ navigation:
         label: 逐字稿管理
         url: markdai/sayitplugin/debatecontroller
         icon: icon-file-text
+        sideMenu:
+            side-menu-item:
+                label: 段落管理
+                url: markdai/sayitplugin/debatesectioncontroller
+                icon: icon-sitemap
+            side-menu-item2:
+                label: 內容管理
+                url: markdai/sayitplugin/debatesectionspeechcontroller
+                icon: icon-sitemap

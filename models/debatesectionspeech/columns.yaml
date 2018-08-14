@@ -1,0 +1,7 @@
+columns:
+    speaker:
+        label: speak
+        type: text
+    speech:
+        label: speech
+        type: text
