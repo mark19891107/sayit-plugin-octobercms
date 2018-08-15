@@ -1,0 +1,16 @@
+title = "Debate Section List"
+url = "/debate/:debate_id"
+is_hidden = 0
+
+[builderList]
+modelClass = "MarkDai\SayitPlugin\Models\DebateSection"
+scope = "scopeDebate"
+scopeValue = "{{ :debate_id }}"
+displayColumn = "heading"
+noRecordsMessage = "No records found"
+detailsPage = "debate-detail"
+detailsKeyColumn = "id"
+detailsUrlParameter = "debate_section_id"
+pageNumber = "{{ :page }}"
+==
+{% component 'builderList' %}

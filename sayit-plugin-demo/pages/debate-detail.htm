@@ -1,0 +1,29 @@
+title = "Debate Detail"
+url = "/debate-section/:debate_section_id"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "MarkDai\SayitPlugin\Models\DebateSection"
+identifierValue = "{{ :debate_section_id }}"
+modelKeyColumn = "id"
+displayColumn = "heading"
+notFoundMessage = "Record not found"
+==
+{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set notFoundMessage = builderDetails.notFoundMessage %}
+
+{% if record %}
+    <h1>{{ attribute(record, displayColumn) }}</h1>
+    <ul class="record-list">
+        {% for speech in record.speeches %}
+            <li>
+                {{ speech.speaker }}: {{ speech.speech }}
+            </li>
+        {% else %}
+            <li class="no-data">{{ noRecordsMessage }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    {{ notFoundMessage }}
+{% endif %}
