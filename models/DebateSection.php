@@ -25,4 +25,13 @@ class DebateSection extends Model
      * @var string The database table used by the model.
      */
     public $table = 'markdai_sayitplugin_debate_section';
+
+    public $hasMany = [
+        'speeches' => ['MarkDai\SayitPlugin\Models\DebateSectionSpeech','delete' => true]
+    ];
+
+    public function scopeDebate($query, $debate_id)
+    {
+        return $query->where('debate_id','=',$debate_id);
+    }
 }

@@ -1,7 +1,0 @@
-columns:
-    heading:
-        label: heading
-        type: text
-    debate_id:
-        label: 'debate id'
-        type: number

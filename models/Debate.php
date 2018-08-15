@@ -26,38 +26,45 @@ class Debate extends Model
      */
     public $table = 'markdai_sayitplugin_debate';
 
+    public $hasMany = [
+        'sections' => ['MarkDai\SayitPlugin\Models\DebateSection','delete' => true]
+    ];
+
     public function afterSave()
     {
-        // $content = $this->getAnContent($this->anurl);
+        $content = $this->getAnContent($this->anurl);
 
-        // foreach($content->debate->debateBody->debateSection as $debateSection)
-        // {
-        //     $section = new DebateSection;
-        //     $section->debate_id = $this->id;
-        //     $section->heading = $debateSection->heading;
-        //     $section->save();
+        foreach($content->debate->debateBody->debateSection as $debateSection)
+        {
+            $section = new DebateSection;
+            $section->debate_id = $this->id;
+            $section->heading = $debateSection->heading;
+            $section->save();
 
-        //     foreach($debateSection->speech as $debateSpeech)
-        //     {
-        //         $speech = new DebateSectionSpeech;
-        //         $speech->debate_section_id = $section->id;
-        //         $speech->speaker = $debateSpeech->attributes()->by;
-        //         $speech->speech = $debateSpeech->p;
-        //         $speech->save();
-        //     }
-        // }
+            foreach($debateSection->speech as $debateSpeech)
+            {
+                $speech = new DebateSectionSpeech;
+                $speech->debate_section_id = $section->id;
+                $speech->speaker = $debateSpeech->attributes()->by;
+                $speech->speech = $debateSpeech->p;
+                $speech->save();
+            }
+        }
     }
 
     public function beforeUpdate()
     {
-        $deletedRows = DebateSection::where('debate_id', $this->id);
-        var_dump($deletedRows);
+        $debate = Debate::find($this->id);
+        $sections = $debate->sections()->get();
+        foreach ($sections as $section) {
+            $section->delete();
+        }
     }
 
     public function getAnContent($url)
     {
         $ch = curl_init(); 
-        curl_setopt($ch, CURLOPT_URL, $url.".an"); 
+        curl_setopt($ch, CURLOPT_URL, $url); 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE); 
         $content = curl_exec($ch); 
         curl_close($ch); 
