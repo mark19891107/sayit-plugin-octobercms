@@ -1,6 +1,9 @@
 # DEMO Step :
 1. git clone https://github.com/mark19891107/sayit-plugin-octobercms
-2. docker run -p 80:80 --rm -v $(pwd)/sayit-plugin:/var/www/html/plugins/markdai/sayitplugin -v $(pwd)/sayit-plugin-demo:/var/www/html/themes/sayit-plugin-demo aspendigital/octobercms:latest
+2. Run with docker
+   ```
+   docker run -p 80:80 --rm -v $(pwd)/sayit-plugin:/var/www/html/plugins/markdai/sayitplugin -v $(pwd)/sayit-plugin-demo:/var/www/html/themes/sayit-plugin-demo aspendigital/octobercms:latest
+   ```
 3. Open : [http://localhost/backend](http://localhost/backend) with admin/admin
 4. Back to URL : [http://localhost/backend](http://localhost/backend)
 5. Install RainLab.Builder plugin
