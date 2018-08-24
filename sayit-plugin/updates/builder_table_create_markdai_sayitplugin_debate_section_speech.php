@@ -10,11 +10,10 @@ class BuilderTableCreateMarkdaiSayitpluginDebateSectionSpeech extends Migration
         Schema::create('markdai_sayitplugin_debate_section_speech', function($table)
         {
             $table->engine = 'InnoDB';
-            $table->integer('id');
+            $table->increments('id');
             $table->integer('debate_section_id');
             $table->string('speaker');
             $table->string('speech');
-            $table->primary(['id']);
         });
     }
     
