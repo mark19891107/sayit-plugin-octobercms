@@ -8,7 +8,9 @@
    aspendigital/octobercms:latest
    ```
 3. Activate Sayit Plugin DEMO
-    * docker exec [your-docker-id] php artisan theme:use sayit-plugin-demo
+   ```
+   docker exec [your-docker-id] php artisan theme:use sayit-plugin-demo
+   ```
 4. Open : [http://localhost/backend](http://localhost/backend) with admin/admin
     * If you got some error, please back to URL : [http://localhost/backend](http://localhost/backend)
 5. Click [逐字稿管理] in nav -> Click Create 
