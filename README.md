@@ -2,14 +2,14 @@
 1. git clone https://github.com/mark19891107/sayit-plugin-octobercms
 2. Run with docker
    ```
-   docker run -p 80:80 -d \
+   docker run -p 80:80 -d --name sayit-plugin-demo \
    -v $(pwd)/sayit-plugin:/var/www/html/plugins/markdai/sayitplugin \
    -v $(pwd)/sayit-plugin-demo:/var/www/html/themes/sayit-plugin-demo \
    aspendigital/octobercms:latest
    ```
 3. Activate Sayit Plugin DEMO
    ```
-   docker exec [your-docker-id] php artisan theme:use sayit-plugin-demo
+   docker exec sayit-plugin-demo php artisan theme:use sayit-plugin-demo
    ```
 4. Open : [http://localhost/backend](http://localhost/backend) with admin/admin
     * If you got some error, please back to URL : [http://localhost/backend](http://localhost/backend)
