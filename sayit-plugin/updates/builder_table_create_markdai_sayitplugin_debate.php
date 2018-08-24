@@ -13,7 +13,6 @@ class BuilderTableCreateMarkdaiSayitpluginDebate extends Migration
             $table->increments('id');
             $table->string('heading');
             $table->string('slug');
-            $table->string('anurl');
         });
     }
     
